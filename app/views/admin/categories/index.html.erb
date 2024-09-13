@@ -3,19 +3,41 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <% content_for :title, "Categories" %>
-
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Categories</h1>
     <%= link_to "New category", new_admin_category_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="admin_categories" class="min-w-full">
-    <% @admin_categories.each do |admin_category| %>
-      <%= render admin_category %>
-      <p>
-        <%= link_to "Show this category", admin_category, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+  <div class="flex flex-col w-full">
+    <div class="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
+      <div class="py-2 inline-block min-w-full">
+        <div class="overflow-x-auto">
+          <table class="min-w-full overflow-x-scroll">
+            <thead class="bg-white border-b">
+              <tr>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
+                  Name
+                </th>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
+                  Description 
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @admin_categories.each do |c| %>
+                <tr class="bg-gray-50 border-b">
+                  <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-800 underline">
+                    <%= link_to c.name, edit_admin_category_path(c) %>
+                  </td>
+                  <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-800">
+                    <%= c.description %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
