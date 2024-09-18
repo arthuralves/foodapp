@@ -1,7 +1,7 @@
-<%= form_with(model: [:admin, admin_product], class: "contents") do |form| %>
-  <% if admin_product.errors.any? %>
-    <%= pluralize(admin_product.errors.count, "error") %> prohibited this admin_product from being saved:
-        <% admin_product.errors.each do |error| %>
+<%= form_with(model: [:admin, admin_category], class: "contents") do |form| %>
+  <% if admin_category.errors.any? %>
+    <%= pluralize(admin_category.errors.count, "error") %> prohibited this admin_category from being saved:
+        <% admin_category.errors.each do |error| %>
           <%= error.full_message %>
         <% end %>
       
@@ -14,22 +14,8 @@
     <%= form.label :description %>
     <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   
-     <% if admin_product.images.any? %>
-      <% admin_product.images.each do |image| %>
-        <%= image_tag image.variant(:thumb), class: "w-20 h-20 object-cover rounded-md" %>
-      <% end %>
-    <% end %>
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  
-    <%= form.label :price %>
-    <%= form.number_field :price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.order(:name), :id, :name, id:"category", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  
-    <%= form.label :active %>
-    <%= form.check_box :active, class: "block mt-2 h-5 w-5" %>
+    <%= form.label :image %>
+    <%= form.file_field :image, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   
