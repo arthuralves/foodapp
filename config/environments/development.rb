@@ -75,6 +75,7 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   Rails.configuration.stripe = {
-    secret_key: ENV['STRIPE_SECRET_KEY']
+    secret_key: ENV['STRIPE_SECRET_KEY'],
+    webhook_secret: ENV['WEBHOOK_SECRET_KEY']
   }
 end
