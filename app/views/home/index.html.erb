@@ -1,4 +1,17 @@
-<h2>Home</h2>
-
-<%= icon('fa-brands', 'font-awesome')%>
-<%= icon('fa-solid', 'user-secret')%>
+<div class="bg-gray-800 text-white text-center py-20">
+    <h1 class="text-5xl font-bold mb-4">Welcome to Ecomm</h1>
+    <p class="text-xl mb-8">Your one-stop shop for all your e-commerce needs</p>
+    <%= link_to "Shop Now", root_path, class: "bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
+</div>
+<div class="flex flex-wrap justify-center mt-8 items-center gap-10">
+    <% @main_categories.each do |category| %>
+        <%= link_to category_path(category) do %>
+            <div class="flex flex-col mb-4">
+                <h2 class="text-gray-800 font-medium text-lg text-center mb-6">
+                    <%= category.name%>
+                </h2>
+                <%= category.image.present? ? image_tag(category.image.variant(:medium), class:"max-w-lg") : image_tag("http://placehold.co/250")%>
+            </div>
+        <% end %>
+    <% end %>   
+</div>
