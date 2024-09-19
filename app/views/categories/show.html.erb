@@ -1,18 +1,18 @@
-<h1>Página de Categoria Detalhada</h1>
+<h1>Category Show Page</h1>
 <div class="min-h-screen flex justify-center">
     <div class="flex flex-wrap flex-col mt-6">
-        <h2 class="text-lg text-gray-800">Filtro</h2>
+        <h2 class="text-lg text-gray-800">Filter</h2>
     </div>
     <div class="flex flex-wrap mt-6 gap-10 flex-grow justify-center items-start">
         <% if @products.empty? %>
-            <p class="text-2xl text-left text-gray-800">Sem produtos associados</p>
+            <p class="text-2xl text-left text-gray-800">No products found</p>
         <% else %>
             <% @products.each do |product| %>
-                <%= link_to root_path do %>
+                <%= link_to product_path(product) do %>
                     <div class="max-w-xs flex flex-col p-4 justify-center items-center">
-                        <%= product.images.first ? image_tag(product.images.first.variant(:medium), class:"rounded") : image_tag("https://placehold.co/200")%>
+                        <%= product.images.first ? image_tag(product.images.first.variant(:medium), class: "rounded") : image_tag("http://via.placeholder.com/250", class:"rounded")%>
                         <p class="mt-6 font-medium text-gray-800">
-                            <%= product.name %>
+                            <%= product.name%>
                         </p>
                     </div>
                 <% end %>
