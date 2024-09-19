@@ -70,6 +70,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem "stripe"
+gem "dotenv-rails"
+
 
 gem "font-awesome-sass", "~> 6.5.1"
 gem "devise", "~> 4.9"
