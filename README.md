@@ -69,9 +69,6 @@ A web application for an e-commerce platform selling food items, built with Ruby
 
 ### Prerequisites
 
-- **Ruby** (version x.x.x)
-- **Ruby on Rails** (version x.x.x)
-- **PostgreSQL** or another compatible database
 - **Stripe Account** for payment processing
 
 ### Installation
@@ -79,7 +76,7 @@ A web application for an e-commerce platform selling food items, built with Ruby
 1. **Clone the Repository**
 
      ```bash
-     git clone https://github.com/yourusername/foodapp.git
+     git clone https://github.com/arthuralves/foodapp.git
      ```
 
 2. **Navigate to the Project Directory**
@@ -104,7 +101,8 @@ A web application for an e-commerce platform selling food items, built with Ruby
 
 5. **Configure Stripe**
 
-     Set your Stripe API keys in environment variables or in the `config/initializers/stripe.rb` file.
+     Set your Stripe API keys in environment variables or in the `.env` file.
+     Setup the webhook in your stripe enviroment pointing to `localhost:3000/webhooks`
 
 6. **Start the Server**
 
@@ -119,7 +117,7 @@ A web application for an e-commerce platform selling food items, built with Ruby
 ## Usage
 
 - **Admin Access**: Navigate to `http://localhost:3000/admin` to access the administrative dashboard.
-- **Shop Products**: Browse products by categories and add them to your cart.
+- **Shop Products**: Navigate to `http://localhost:3000/` browse products by categories and add them to your cart.
 - **Checkout Process**: Proceed to checkout and complete the payment using Stripe.
 
 ## License
