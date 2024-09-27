@@ -94,4 +94,9 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  Rails.configuration.stripe = {
+    secret_key: ENV['STRIPE_SECRET_KEY'],
+    webhook_secret: ENV['WEBHOOK_SECRET_KEY']
+  }
 end
